@@ -8,7 +8,7 @@ for(let i=0;i<30;i++){
     id:i,
     age:i,
     name:'胡彦斌',
-    address:'西湖区湖底公园'+i+"号",
+    address:'西湖区湖底公园'+i+"",
     time:'2017-10-20'
   })
 }

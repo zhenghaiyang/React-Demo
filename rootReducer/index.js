@@ -8,13 +8,13 @@ import {
 
 
 
-import reducer from '../redux/redux';
+import Testreducer from '../components/Test/reducers';
 
 
 
 const rootReducer = combineReducers({
-	// routing: routerReducer,
-	reducer,
+	routing: routerReducer,
+	Testreducer,
 	// home: homeReducer,
 });
 

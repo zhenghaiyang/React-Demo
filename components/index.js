@@ -19,6 +19,9 @@ export { MyTable };
 import MyTableTwo from './MyTableTwo/MyTableTwo';
 export { MyTableTwo };
 
+//导出 AddTable 组件
+import AddTable from './AddTable/AddTable';
+export { AddTable };
 
 //引入测试 组件
 import Test from './Test/test';

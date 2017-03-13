@@ -8,7 +8,7 @@ export const DEL="DEL";
 
 
 //测试方法 不改变
-function test(data){
+export function test(data){
   return {
     type:TEXT_TEXT,
     data:data
@@ -16,13 +16,13 @@ function test(data){
 }
 
 //测试增加
-function add(){
+export function add(){
   return {
     type:ADD
   }
 }
 //测试减减
-function del(){
+export function del(){
   return {
     type:DEL
   }
