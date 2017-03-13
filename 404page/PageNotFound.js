@@ -10,4 +10,5 @@ class PageNotFound extends PureComponent{
   }
 }
 
-export default PageNotFound;
+module.exports = PageNotFound;
+// modules.exports= PageNotFound;

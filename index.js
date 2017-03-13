@@ -10,10 +10,8 @@ import {
 
 //引入路由
 import rootRouter from './router/rootRouter';
+//引入全局store
 import rootReducer from './rootReducer';
-
-
-
 let store=createStore(rootReducer);
 
 //const history=syncHistoryWithStore(syncHistoryWithStore,store)

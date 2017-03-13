@@ -1,5 +1,5 @@
 import App from '../app/App';
-import PageNotFound from '../404page';
+// import PageNotFound from '../404page';
 
 
 const rootRouter={
@@ -8,12 +8,13 @@ const rootRouter={
       path:'/',
       component:App,
       childRoutes:[
-        require("../menu"),//Menu
-        {
-        path: '*',
-				name: 'Page not found',
-				component: PageNotFound
-        },
+        require("../container/Menu"),//Menu
+        // {
+        // path: '*',
+				// name: 'Page not found',
+				// component: PageNotFound
+        // },
+        require("../404page")
       ]
     }
   ]
