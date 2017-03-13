@@ -1,84 +1,108 @@
-import {Table,message} from 'antd';
+import { Form, Input, Icon, Button } from 'antd';
 import React,{Component} from 'react';
+import "./style.css"
+const FormItem = Form.Item;
 
+let uuid = 0;
+class MyTable extends Component {
+  remove(k){
+    const { form } = this.props;
+    // can use data-binding to get
+    const keys = form.getFieldValue('keys');
+    // We need at least one passenger
+    if (keys.length === 1) {
+      return;
+    }
 
-
-
-const dataSource=[];
-for(let i=0;i<30;i++){
-  dataSource.push({
-    key:i,
-    id:i,
-    age:i,
-    name:'胡彦斌',
-    address:'西湖区湖底公园'+i+"号",
-    time:'2017-10-20'
-  })
-}
-
-//排序
-const columns = [
-  {
-    title:'ID',
-    dataIndex:'id',
-    key:'id',
-    sorter:(a,b)=>a.id-b.id,
-  },
-  {
-  title: '姓名',
-  dataIndex: 'name',
-  key: 'name',
-}, {
-  title: '年龄',
-  dataIndex: 'age',
-  key: 'age',
-  sorter:(a,b)=>a.age-b.age,
-}, {
-  title: '住址',
-  dataIndex: 'address',
-  key: 'address',
-},{
-  title:'日期',
-  dataIndex:'time',
-  key:'time'
-},{
-  title:'头像',
-  dataIndex:'img',
-  key:'img',
-  width:150,
-  render:()=>(
-    <img src={require("../../static/img/tx.jpg")} style={{width:'150px',height:'100px'}}/>
-  )
-},{
-  title:'操作',
-  render:()=>(
-    <a onClick={infoMessage}>查看</a>
-  )
-}];
-const infoMessage=()=>{
-  message.info("This is message!")
-}
-
-
-export default class MyTable extends Component{
-
-  constructor(props){
-    super(props);
+    // can use data-binding to set
+    form.setFieldsValue({
+      keys: keys.filter(key => key !== k),
+    });
   }
 
+  add(){
+    uuid++;
+    const { form } = this.props;
+    // can use data-binding to get
+    const keys = form.getFieldValue('keys');
+    console.log("----keys----")
+    console.log(keys)
+    console.log("----keys----")
+    const nextKeys = keys.concat(uuid);
+    // can use data-binding to set
+    // important! notify form to detect changes
+    form.setFieldsValue({
+      keys: nextKeys,
+    });
+  }
 
-  render(){
+  handleSubmit(e){
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  }
 
-
-
-    return(
-        <Table
-          style={{width:'760px', height:'260px',float:'left',margin:"10px 0px 0px 30px"}}
-          columns={columns}
-          dataSource={dataSource}
-          pagination={{pageSize:5}}
-          bordered={true}
-        />
-    )
+  render() {
+    console.log("AddTable")
+    const { getFieldDecorator, getFieldValue } = this.props.form;
+    //样式
+    const formItemLayout = {
+      labelCol: { span: 4 },
+      wrapperCol: { span: 20 },
+    };
+    //样式
+    const formItemLayoutWithOutLabel = {
+      wrapperCol: { span: 20, offset: 4 },
+    };
+    getFieldDecorator('keys', { initialValue: [] });
+    const keys = getFieldValue('keys');
+    console.log("------keys")
+    console.log(keys)
+    console.log("------keys")
+    const formItems = keys.map((k, index) => {
+      return (
+        <FormItem
+          {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
+          label={index === 0 ? 'Passengers' : ''}
+          required={false}
+          key={k}
+        >
+          {getFieldDecorator(`names-${k}`, {
+            validateTrigger: ['onChange', 'onBlur'],
+            rules: [{
+              required: true,
+              whitespace: true,
+              message: "Please input passenger's name or delete this field.",
+            }],
+          })(
+            <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
+          )}
+          <Icon
+            className="dynamic-delete-button"
+            type="minus-circle-o"
+            disabled={keys.length === 1}
+            onClick={() => this.remove(k)}
+          />
+        </FormItem>
+      );
+    });
+    return (
+      <Form onSubmit={this.handleSubmit.bind(this)}>
+        {formItems}
+        <FormItem {...formItemLayoutWithOutLabel}>
+          <Button type="dashed" onClick={this.add.bind(this)} style={{ width: '60%' }}>
+            <Icon type="plus" /> Add field
+          </Button>
+        </FormItem>
+        <FormItem {...formItemLayoutWithOutLabel}>
+          <Button type="primary" htmlType="submit" size="large">Submit</Button>
+        </FormItem>
+      </Form>
+    );
   }
 }
+MyTable=Form.create()(MyTable);
+export default MyTable;

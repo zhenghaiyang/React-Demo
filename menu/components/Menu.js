@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu, Icon } from 'antd';
 import {hashHistory} from 'react-router';
-import {Ueditor,MyTable,MyTableTwo,Test,AddTable} from "../../components";
+import {Ueditor,MyTable,MyTableTwo,Test} from "../../components";
 
 //import Test from '../../components/test';
 const SubMenu = Menu.SubMenu;
@@ -84,12 +84,11 @@ const MenuItemGroup = Menu.ItemGroup;
           <Menu.Item key="12">Option 123</Menu.Item>
         </SubMenu>
       </Menu>
-          <div style={{float:"left",height:"560px"}}>
+          <div style={{float:"left",height:"560px",width:"1000px"}}>
             {  this.state.UeditorCount==1 && <Ueditor/>   }  {/* Ueditor 组件*/}
             {  this.state.UeditorCount==2 && <MyTable/>  }   {/*ant_design Table 组件*/}
             {  this.state.UeditorCount==3 && <MyTableTwo/>  }   {/*ant_design Table 组件*/}
-            {  this.state.UeditorCount==4 && <AddTable/>  }
-            {  this.state.UeditorCount==5 && <Test/>  }
+            {  this.state.UeditorCount==4 && <Test/>  }
           </div>
       </div>
     )
