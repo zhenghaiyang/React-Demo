@@ -22,7 +22,9 @@ class Test extends Component{
 
 
 function stateRedux (state){
+  console.log("-----state------")
   console.log(state)
+  console.log("-----state------")
   return{
     // initstate:state.initstate
   };

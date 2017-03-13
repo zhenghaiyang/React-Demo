@@ -13,7 +13,7 @@ import reducer from '../redux/redux';
 
 
 const rootReducer = combineReducers({
-	routing: routerReducer,
+	// routing: routerReducer,
 	reducer,
 	// home: homeReducer,
 });
