@@ -9,8 +9,6 @@
 import Ueditor from './Ueditor/Ueditor';
 export{ Ueditor };
 
-
-
 //导出 ant_design table 组件
 import MyTable from './MyTable/MyTable';
 export { MyTable };
@@ -19,6 +17,9 @@ export { MyTable };
 import MyTableTwo from './MyTableTwo/MyTableTwo';
 export { MyTableTwo };
 
+//引入Modal 组件
+import MyModal from './Modal/MyModal';
+export { MyModal };
 
 //引入测试 组件
 import Test from './Test/test';
