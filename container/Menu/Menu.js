@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu, Icon } from 'antd';
 import {hashHistory} from 'react-router';
+<<<<<<< HEAD
 import {Ueditor,BuyAndSell,MyTableTwo,Test } from "../../components";
+=======
+import {Ueditor,MyTable,MyTableTwo,Test,FormTest} from "../../components";
+>>>>>>> 8c0c9cfeee4fb6ad3e7a57e4648fe7dc65a0fff8
 
 //import Test from '../../components/test';
 const SubMenu = Menu.SubMenu;
@@ -36,6 +40,9 @@ const MenuItemGroup = Menu.ItemGroup;
       case "4":
         this.UeditorCount=4;
         break;
+      case "5":
+        this.UeditorCount=5;
+        break;
       default:
         break;
     }
@@ -63,7 +70,7 @@ const MenuItemGroup = Menu.ItemGroup;
           </MenuItemGroup>
           <MenuItemGroup key="g2" title="Item 2">
             <Menu.Item key="3">蚂蚁金福Table组件查看信息</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
+            <Menu.Item key="4">Option 4222</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
         <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
@@ -86,6 +93,7 @@ const MenuItemGroup = Menu.ItemGroup;
             {  this.state.UeditorCount==2 && <BuyAndSell/>  }   {/*ant_design Table 组件*/}
             {  this.state.UeditorCount==3 && <MyTableTwo/>  }   {/*ant_design Table 组件*/}
             {  this.state.UeditorCount==4 && <Test/>  }
+            { this.state.UeditorCount==5 && (<div style={{marginLeft:"30px"}}><FormTest/></div>)}
           </div>
       </div>
     )
