@@ -23,3 +23,7 @@ export { MyTableTwo };
 //引入测试 组件
 import Test from './Test/test';
 export { Test };
+
+//引入测试form
+import FormTest from './FormTest/FormTest';
+export { FormTest }
