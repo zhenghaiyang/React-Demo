@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu, Icon } from 'antd';
 import {hashHistory} from 'react-router';
-import {Ueditor,MyTable,MyTableTwo,Test,FormTest} from "../../components";
+import {Ueditor,BuyAndSell,MyTableTwo,Test,FormTest} from "../../components";
 
 //import Test from '../../components/test';
 const SubMenu = Menu.SubMenu;

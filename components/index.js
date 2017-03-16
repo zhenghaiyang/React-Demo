@@ -10,7 +10,7 @@ import Ueditor from './Ueditor/Ueditor';
 export{ Ueditor };
 
 //导出 ant_design table 组件
-import BuyAndSell from './MyTable/BuyAndSell';
+import BuyAndSell from './BuyAndSell/BuyAndSell';
 export { BuyAndSell };
 
 //导出 ant_design table 组件

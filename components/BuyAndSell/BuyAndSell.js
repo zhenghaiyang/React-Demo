@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import MyTable from './MyTable';
+import InfoBox from './InfoBox';
 import { connect} from 'react-redux';  //必须
 import {bindActionCreators} from 'redux'; //必须
 import { addInfo,delInfo,updateName,updateAge } from './reducer';
@@ -11,7 +11,7 @@ class BuyAndSell extends Component{
     return(
       <div>
         <h1>买家信息</h1>
-        <MyTable infoType="buyer"
+        <InfoBox infoType="buyer"
           data={this.props.infodata}
           addInfo={this.props.action.addInfo}
           delInfo={this.props.action.delInfo}
@@ -19,7 +19,7 @@ class BuyAndSell extends Component{
           updateAge={this.props.action.updateAge}
         />
         <h1>卖家信息</h1>
-        <MyTable infoType="seller"
+        <InfoBox infoType="seller"
           data={this.props.infodata}
           addInfo={this.props.action.addInfo}
           delInfo={this.props.action.delInfo}

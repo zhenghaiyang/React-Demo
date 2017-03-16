@@ -9,7 +9,7 @@ import {
 
 
 import Testreducer from '../components/Test/reducers';
-import inforeducer from '../components/MyTable/reducer';
+import inforeducer from '../components/BuyAndSell/reducer';
 
 
 const rootReducer = combineReducers({

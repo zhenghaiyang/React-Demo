@@ -7,7 +7,7 @@
   transition: all .3s;
 }
 .dynamic-delete-button:hover {
-  color: #777;
+  color: red;
 }
 .dynamic-delete-button[disabled] {
   cursor: not-allowed;
