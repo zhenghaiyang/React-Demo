@@ -9,12 +9,13 @@ import {
 
 
 import Testreducer from '../components/Test/reducers';
-
+import inforeducer from '../components/MyTable/reducer';
 
 
 const rootReducer = combineReducers({
 	routing: routerReducer,
 	Testreducer,
+	inforeducer
 	// home: homeReducer,
 });
 

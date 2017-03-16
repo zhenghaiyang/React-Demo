@@ -1,107 +1,91 @@
-import { Form, Input, Icon, Button } from 'antd';
-import React,{Component} from 'react';
-import "./style.css"
+import React,{ Component } from 'react';
+import {Form,Input, Icon,Button} from 'antd';
+import AddressSelect from './AddressSelect';
 const FormItem = Form.Item;
 
-let uuid = 0;
-class MyTable extends Component {
-  remove(k){
-    const { form } = this.props;
-    // can use data-binding to get
-    const keys = form.getFieldValue('keys');
-    // We need at least one passenger
-    if (keys.length === 1) {
-      return;
-    }
 
-    // can use data-binding to set
-    form.setFieldsValue({
-      keys: keys.filter(key => key !== k),
-    });
+class MyTable extends Component{
+
+  constructor(props){
+    super(props);
+
+
+    this.add=this.add.bind(this);
   }
 
   add(){
-    uuid++;
-    const { form } = this.props;
-    // can use data-binding to get
-    const keys = form.getFieldValue('keys');
-    console.log("----keys----")
-    console.log(keys)
-    console.log("----keys----")
-    const nextKeys = keys.concat(uuid);
-    // can use data-binding to set
-    // important! notify form to detect changes
-    form.setFieldsValue({
-      keys: nextKeys,
-    });
+
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  }
 
-  render() {
-    console.log("AddTable")
+  render(){
+    console.log(this.props)
     const { getFieldDecorator, getFieldValue } = this.props.form;
-    //样式
     const formItemLayout = {
-      labelCol: { span: 4 },
-      wrapperCol: { span: 20 },
+      labelCol: { span: 5 },
+      wrapperCol: { span: 22 },
     };
-    //样式
-    const formItemLayoutWithOutLabel = {
-      wrapperCol: { span: 20, offset: 4 },
-    };
-    getFieldDecorator('keys', { initialValue: [] });
-    const keys = getFieldValue('keys');
-    console.log("------keys")
-    console.log(keys)
-    console.log("------keys")
-    const formItems = keys.map((k, index) => {
-      return (
-        <FormItem
-          {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-          label={index === 0 ? 'Passengers' : ''}
-          required={false}
-          key={k}
-        >
-          {getFieldDecorator(`names-${k}`, {
-            validateTrigger: ['onChange', 'onBlur'],
+    debugger;
+    if(this.props.infoType=="buyer"){
+      if(!this.props.data){
+        var infolist=[];
+        var listindex=infolist.map((data,index)=>{
+          return(index)
+        })
+        infolist.push(new Object());
+        listindex.push(0)
+      }else{
+        var infolist=this.props.data.buyer;
+      }
+    }else if(this.props.infoType=="seller"){
+      if(!this.props.data){
+        var infolist=[];
+        var listindex=infolist.map((data,index)=>{
+          return(index)
+        })
+        infolist.push(new Object());
+        listindex.push(0)
+      }else{
+          var infolist=this.props.data.seller;
+      }
+    }
+    const formItems=infolist.map((data,index)=>{
+      return(
+        <FormItem>
+          {getFieldDecorator(`names-${index}`, {
+            initialValue:data.name,
             rules: [{
               required: true,
               whitespace: true,
-              message: "Please input passenger's name or delete this field.",
+              message: "名字不能为空",
             }],
           })(
-            <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
+            <Input placeholder="请输入名字" style={{ width:"140px",display:"block" }} />
           )}
-          <Icon
-            className="dynamic-delete-button"
-            type="minus-circle-o"
-            disabled={keys.length === 1}
-            onClick={() => this.remove(k)}
-          />
+          <div style={{float:'left',marginTop:"12px"}}>
+              <AddressSelect/>
+          </div>
+          {getFieldDecorator(`age-${index}`, {
+            initialValue:data.address,
+            rules: [{
+              required: true,
+              whitespace: true,
+              message: "地址不能为空",
+            }],
+          })(
+            <Input placeholder="请输入地址" style={{ width:"400px",marginLeft:"12px",marginTop:"12px"}} />
+          )}
         </FormItem>
-      );
-    });
-    return (
-      <Form onSubmit={this.handleSubmit.bind(this)}>
+      )
+    })
+    return(
+      <div style={{marginLeft:"40px"}}>
         {formItems}
-        <FormItem {...formItemLayoutWithOutLabel}>
-          <Button type="dashed" onClick={this.add.bind(this)} style={{ width: '60%' }}>
-            <Icon type="plus" /> Add field
+        <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
+            <Icon type="plus" /> Add Info
           </Button>
-        </FormItem>
-        <FormItem {...formItemLayoutWithOutLabel}>
-          <Button type="primary" htmlType="submit" size="large">Submit</Button>
-        </FormItem>
-      </Form>
-    );
+      </div>
+    )
   }
 }
 MyTable=Form.create()(MyTable);

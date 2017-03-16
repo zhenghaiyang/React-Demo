@@ -12,8 +12,8 @@ export{ Ueditor };
 
 
 //导出 ant_design table 组件
-import MyTable from './MyTable/MyTable';
-export { MyTable };
+import BuyAndSell from './MyTable/BuyAndSell';
+export { BuyAndSell };
 
 //导出 ant_design table 组件
 import MyTableTwo from './MyTableTwo/MyTableTwo';
