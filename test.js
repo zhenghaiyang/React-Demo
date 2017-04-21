@@ -107,29 +107,16 @@
 //   console.log(n);
 // }
 
-// function *hellowrold(x){
-//   var y=2*(yield (x+1))
-//   var z=yield (y/3)
-//   yield "333"
-//   return (y+z)
-// }
-//
-// var hw=hellowrold(2)
-//
-// console.log(hw.next())
-// console.log(hw.next(1))
-// console.log(hw.next())
-// console.log(hw.next())
-
-var abc=90
-function aaa(){
-  var i=0;
-  function b(){
-    abc+=1
-    return console.log(abc)
-  }
-  console.log(abc)
-  return b
+function *hellowrold(x){
+  var y=2*(yield (x+1))
+  var z=yield (y/3)
+  yield "333"
+  return (y+z)
 }
-var c=aaa()
-c()
+
+var hw=hellowrold(2)
+
+console.log(hw.next())
+console.log(hw.next(1))
+console.log(hw.next())
+console.log(hw.next())
