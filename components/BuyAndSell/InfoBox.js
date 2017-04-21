@@ -17,7 +17,7 @@ class InfoBox extends Component{
   }
 
   remove(index){
-    console.log(index)
+    this.props.delInfo(this.props.data,this.props.infoType,index);
   }
 
   render(){

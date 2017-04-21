@@ -19,7 +19,12 @@ export function addInfo(data,type){
   }
 }
 
-export function delInfo(data,type){
+export function delInfo(data,type,index){
+  if(type=="buyer"){
+    data.buyer.splice(index,1)
+  }else if(type=="seller"){
+    data.seller.splice(index,1)
+  }
   return{
     type:DEL_INFO,
     data:data
@@ -70,7 +75,7 @@ export default function reducer(state=initstate,action){
       break;
     case DEL_INFO:
       return Object.assign({},state,{
-
+        state:action.data
       })
       break;
     case UPDATE_NAME:
