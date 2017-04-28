@@ -28,3 +28,6 @@ export { Test };
 //引入测试form
 import FormTest from './FormTest/FormTest';
 export { FormTest }
+
+import HtmlTable from './HtmlTable/HtmlTable'
+export { HtmlTable }
