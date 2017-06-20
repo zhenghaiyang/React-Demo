@@ -13,7 +13,6 @@ class AddressSelect extends Component{
   handleChange(value){
     console.log(value)
   }
-
   render(){
     return(
     <div>
