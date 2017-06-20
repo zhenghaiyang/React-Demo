@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Menu, Icon } from 'antd';
 import {hashHistory} from 'react-router';
-import {Ueditor,BuyAndSell,MyTableTwo,Test,FormTest,HtmlTable} from "../../components";
+import {Ueditor,BuyAndSell,MyTableTwo,Test,FormTest,HtmlTable,IconFont} from "../../components";
 
 //import Test from '../../components/test';
 const SubMenu = Menu.SubMenu;
@@ -41,6 +41,9 @@ const MenuItemGroup = Menu.ItemGroup;
         break;
       case "6":
         this.UeditorCount=6;
+        break;
+      case "7":
+        this.UeditorCount=7;
         break;
       default:
         break;
@@ -87,13 +90,14 @@ const MenuItemGroup = Menu.ItemGroup;
           <Menu.Item key="12">Option 12</Menu.Item>
         </SubMenu>
       </Menu>
-          <div style={{float:"left",height:"560px",width:'1000px'}}>
+          <div style={{float:"left"}}>
             {  this.state.UeditorCount==1 && <Ueditor/>   }  {/* Ueditor 组件*/}
             {  this.state.UeditorCount==2 && <BuyAndSell/>  }   {/*ant_design Table 组件*/}
             {  this.state.UeditorCount==3 && <MyTableTwo/>  }   {/*ant_design Table 组件*/}
             {  this.state.UeditorCount==4 && <Test/>  }
-            { this.state.UeditorCount==5 && (<div style={{marginLeft:"30px"}}><FormTest/></div>)}
-            {this.state.UeditorCount==6 && <HtmlTable/>}
+            {  this.state.UeditorCount==5 && (<div style={{marginLeft:"30px"}}><FormTest/></div>)}
+            { this.state.UeditorCount==6 && <HtmlTable/>}
+            { this.state.UeditorCount==7 && <IconFont/>}
           </div>
       </div>
     )

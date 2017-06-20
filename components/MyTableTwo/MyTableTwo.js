@@ -1,13 +1,16 @@
-import {Table,message} from 'antd';
+import {Table,message,Button} from 'antd';
 import React,{Component} from 'react';
 import  MyModal  from '../Modal/MyModal';
-
+import { connect} from 'react-redux';  //必须
+import {bindActionCreators} from 'redux'; //必须
+import  * as tableReducerActions from './reducer';
 
 const dataSource=[];
 for(let i=0;i<30;i++){
   dataSource.push({
-    key:i,
+    key:i+10,
     id:i,
+    rowkey:i+50,
     age:i,
     name:'胡彦斌',
     address:'西湖区湖底公园'+i+"",
@@ -17,14 +20,17 @@ for(let i=0;i<30;i++){
 
 
 
-export default class MyTableTwo extends Component{
+class MyTableTwo extends Component{
 
     constructor(props){
       super(props);
       this.state={
-        showVisible:false
+        showVisible:false,
+        selectedRowKeys:[]
       }
+      this.onchangeRowkey=this.onchangeRowkey.bind(this)
       this.handleOnCancel=this.handleOnCancel.bind(this);//Modal 关闭方法
+      this.handleAdd=this.handleAdd.bind(this)
     }
 
     //查看项目信息
@@ -41,8 +47,23 @@ export default class MyTableTwo extends Component{
       })
     }
 
-  render(){
+    onchangeRowkey(key,row){
+      console.log(key)
+      this.setState({
+        selectedRowKeys:key
+      })
+      console.log(row)
+    }
 
+    handleAdd(){
+      this.props.addTable()
+    }
+
+
+  render(){
+    console.log("22222222222")
+    console.log(this.props)
+    console.log("000000000000")
     const columns = [
       {
         title:'ID',
@@ -85,20 +106,51 @@ export default class MyTableTwo extends Component{
         </span>
       )
     }];
-
-
+    const {selectedRowKeys}=this.state;
+    const rowSelection = {
+      selectedRowKeys,
+      onChange:this.onchangeRowkey,
+      }
 
     return(
+
       <div>
         <Table
-          style={{width:'760px', height:'260px',float:'left',margin:"10px 0px 0px 30px"}}
+          rowSelection={rowSelection}
+          style={{width:'760px', float:'left',margin:"10px 0px 0px 30px"}}
           columns={columns}
           dataSource={dataSource}
           pagination={{pageSize:5}}
           bordered={true}
+          rowKey={record => record.rowkey}
         ></Table>
+        <Button onClick={this.handleAdd}>确定</Button>
+        <div style={{float:'left'}}>
+          <Table
+            columns={columns}
+            />
+        </div>
         <MyModal showVisible={this.state.showVisible} handleOnCancel={this.handleOnCancel}/>
+
       </div>
     )
   }
 }
+
+function stateRedux (state){
+  return{
+     tableReducer:state.tableReducer
+  };
+};
+// @connect(
+//   state => ({financeManageGridWrap:state.financeManageGridWrap}),
+//   dispatch => bindActionCreators({...financeManageGridWrapActions}, dispatch)
+// )
+function actionRedux (dispatch){
+    return bindActionCreators({
+      ...tableReducerActions
+    },dispatch)
+};
+
+
+export default connect(stateRedux,actionRedux)(MyTableTwo);

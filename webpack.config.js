@@ -20,6 +20,16 @@ var config={
   },
   //插件配置
   plugins:[
+    //new webpack.optimize.DedupePlugin(),
+    //new webpack.optimize.OccurenceOrderPlugin(),  为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+    //new webpack.optimize.ExtractTextPlugin()   分类css和js
+    new webpack.optimize.UglifyJsPlugin({      //去掉注释 ，压缩js代码
+      compress: {
+        warnings: false,
+        drop_debugger: true,
+        drop_console: true
+      }
+    }),
     new webpack.HotModuleReplacementPlugin() //webpack热加载插件
   ],
   //模块加载
@@ -27,22 +37,27 @@ var config={
     loaders:[
       {
         test: /\.jsx?$/, // 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx
-        exclude: [node_modules_dir],  //除外
+        exclude: /node_modules/,  //除外
         loader: 'babel-loader', // 加载模块 "babel" 是 "babel-loader" 的缩写
-        query: {
-          presets: ['es2015', 'react'],
-              }
+        // query: {
+        //   presets: ['es2015', 'react'],
+        //   }
       },
       {
         test: /\.(png|jpg)$/,
-        exclude: [node_modules_dir],
+        exclude: /node_modules/,
         loader: 'url?limit=125000'
       },
       {
         test: /\.css$/, // Only .css files
         //exclude: [node_modules_dir],
         loader: 'style!css' // Run both loaders
-      }
+      },
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
+      { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
     ]
   }
 };

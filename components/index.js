@@ -31,3 +31,6 @@ export { FormTest }
 
 import HtmlTable from './HtmlTable/HtmlTable'
 export { HtmlTable }
+
+import IconFont from './IconFont/IconFont'
+export { IconFont }

@@ -10,12 +10,13 @@ import {
 
 import Testreducer from '../components/Test/reducers';
 import inforeducer from '../components/BuyAndSell/reducer';
-
+import tableReducer from '../components/MyTableTwo/reducer'
 
 const rootReducer = combineReducers({
 	routing: routerReducer,
 	Testreducer,
-	inforeducer
+	inforeducer,
+	tableReducer
 	// home: homeReducer,
 });
 
