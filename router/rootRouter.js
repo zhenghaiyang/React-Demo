@@ -1,5 +1,5 @@
 import App from '../app/App';
-// import PageNotFound from '../404page';
+import PageNotFound from '../404page';
 
 
 const rootRouter={
@@ -14,7 +14,7 @@ const rootRouter={
 				// name: 'Page not found',
 				// component: PageNotFound
         // },
-        require("../404page")
+        PageNotFound
       ]
     }
   ]

@@ -40,7 +40,7 @@ class InfoBox extends Component{
       }
     }
     const formItemLayout = {
-      labelCol: { span: 5 },
+      labelCol: { span: 5 }, 
       wrapperCol: { span: 22 },
     };
     const formItems=infolist.map((data,index)=>{
@@ -50,7 +50,7 @@ class InfoBox extends Component{
           var candel=false
         }
       return(
-        <div>
+        <div key={Math.random()+new Date()}>
         <FormItem>
           {getFieldDecorator(`names-${index}`, {
             initialValue:data.name,
