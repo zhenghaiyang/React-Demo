@@ -1,0 +1,36 @@
+.titleBox{
+  float: left;
+  margin-left: 30px;
+}
+.titleSpanValue{
+  margin-left: 10px;
+}
+.titleSpanKey{
+  color:rgb(153,153,153)
+}
+.tbaleBox{
+  border: 1px solid #ddd;
+  width:100%;
+}
+.bodyBox{
+  text-align:center;
+  padding: 10px 8px;
+}
+.tableheard{
+  tr{
+    th{
+      padding: 16px 8px;
+      word-break: break-all;
+      height: 50px;
+      background-color: #f7f7f7;
+    }
+  }
+}
+.tableBaseInfo{
+  padding: 16px 8px;
+  word-break: break-all;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-left: 0px;
+  border-right: 0px;
+}

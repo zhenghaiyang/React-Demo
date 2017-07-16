@@ -34,3 +34,12 @@ export { HtmlTable }
 
 import IconFont from './IconFont/IconFont'
 export { IconFont }
+
+//甘道图
+import ReactForGantt from './ReactGantt/reactgantt';
+export {ReactForGantt}
+
+
+//test
+import ItemTable from './HtmlTable/testHTML.js'
+export { ItemTable }

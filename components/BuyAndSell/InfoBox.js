@@ -23,7 +23,7 @@ class InfoBox extends Component{
   render(){
     console.log(this.props)
     const { getFieldDecorator, getFieldValue } = this.props.form;
-    debugger;
+    //debugger;
     if(this.props.infoType=="buyer"){
       if(!this.props.data){
         var infolist=[];
@@ -40,7 +40,7 @@ class InfoBox extends Component{
       }
     }
     const formItemLayout = {
-      labelCol: { span: 5 }, 
+      labelCol: { span: 5 },
       wrapperCol: { span: 22 },
     };
     const formItems=infolist.map((data,index)=>{

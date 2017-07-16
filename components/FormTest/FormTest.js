@@ -3,12 +3,36 @@ import {
   Slider, Button, Upload, Icon,
 } from 'antd';
 import React,{ Component } from 'react';
+import lodashs from 'lodash';
+import {add} from 'lodash/fp'
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
+console.log("00000000000000000000000000000000000")
+console.log(lodashs)
+console.log(React)
+console.log("000000000000000000000000000000000000")
+
+
 class FormTest extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.handleAdd=this.handleAdd.bind(this)
+  }
+
+  handleAdd(){
+    console.log(lodashs)
+    console.log(React)
+    let arry=[1,2,3,4,5]
+    lodashs.times(5,function(arry){
+      console.log(arry)
+    })
+  }
+
+
   handleSubmit(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -23,7 +47,13 @@ class FormTest extends React.Component {
     }
     return e && e.fileList;
   }
+
+
   render() {
+    console.log("00000000000")
+    console.log(lodashs)
+    console.log(add)
+    console.log("00000000000")
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },
@@ -150,6 +180,7 @@ class FormTest extends React.Component {
         <FormItem
           wrapperCol={{ span: 12, offset: 6 }}
         >
+          <Button type="primary" onClick={this.handleAdd}>add</Button>
           <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
       </Form>

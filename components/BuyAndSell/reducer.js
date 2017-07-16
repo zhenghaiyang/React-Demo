@@ -5,7 +5,7 @@ const UPDATE_AGE="UPDATE_AGE";
 
 
 export function addInfo(data,type){
- debugger;
+ //debugger;
  console.log(data);
  console.log(type);
   if(type=="buyer"){
