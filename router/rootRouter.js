@@ -14,7 +14,8 @@ const rootRouter={
 				// name: 'Page not found',
 				// component: PageNotFound
         // },
-        PageNotFound
+        require('../404page')
+        // PageNotFound
       ]
     }
   ]

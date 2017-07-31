@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "airbnb-base"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": "off",
+    "no-tabs": "off",
+    "class-methods-use-this": "off",
+    "object-shorthand": "off",
+    "no-debugger": "off",
+    "no-underscore-dangle": "off", //禁止标识符中有悬空下划线
+    "no-use-before-define": "off",
+    "no-unused-vars": "warn",
+    "class-methods-use-this": "warn",
+    "global-require": "off", //要求 require() 出现在顶层模块作用域中
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "no-restricted-syntax": "warn",
+    "prefer-default-export": "off",
+    "no-prototype-builtins": "warn",
+    "react/no-multi-comp": "off", //禁止在同一个jsx中使用一个以上的class文件
+    "no-script-url": "off", //url中禁止使用script
+    "jsx-a11y/href-no-hash": "off", //禁止在a标签中使用#
+    "jsx-a11y/anchor-has-content": "off", //禁止在a标签中使用#
+    "react/no-array-index-key": "off", //禁止在使用数组index作为key
+    "react/forbid-prop-types": "off", //禁止使用any array 作为react proptype的属性
+    // "jsx-a11y/no-static-element-interactions": "off", //禁止在普通元素中绑定事件
+    "no-plusplus": "off", //不允许使用++符号
+    "import/no-dynamic-require": "warn" //允许require路径存在变量
+  },
+  "globals": {
+    "React": true,
+    "mapboxgl": true
+  }
+}

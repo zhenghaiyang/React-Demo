@@ -15,8 +15,8 @@ console.log(lodashs)
 console.log(React)
 console.log("000000000000000000000000000000000000")
 
-
-class FormTest extends React.Component {
+@Form.create()
+export default class FormTest extends React.Component {
 
   constructor(props){
     super(props)
@@ -35,6 +35,7 @@ class FormTest extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    console.log(this.props)
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
@@ -60,7 +61,7 @@ class FormTest extends React.Component {
       wrapperCol: { span: 14 },
     };
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={::this.handleSubmit}>
         <FormItem
           {...formItemLayout}
           label="Nation"
@@ -188,5 +189,4 @@ class FormTest extends React.Component {
   }
 }
 
-FormTest = Form.create()(FormTest);
-export default FormTest;
+// FormTest = Form.create()(FormTest);

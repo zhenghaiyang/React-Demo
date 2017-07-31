@@ -20,6 +20,7 @@ var config={
   },
   //插件配置
   plugins:[
+    //new webpack.optimize.UglifyJsPlugin(), 压缩代码
     //new webpack.optimize.DedupePlugin(),
     //new webpack.optimize.OccurenceOrderPlugin(),  为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
     //new webpack.optimize.ExtractTextPlugin()   分类css和js
@@ -34,6 +35,12 @@ var config={
   ],
   //模块加载
   module:{
+    // preLoaders: [
+    //   {
+    //     test: /\.(js|jsx)$/,
+    //     loader: 'eslint'
+    //   }
+    // ],
     loaders:[
       {
         test: /\.jsx?$/, // 用正则来匹配文件路径，这段意思是匹配 js 或者 jsx

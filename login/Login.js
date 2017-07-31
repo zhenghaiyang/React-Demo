@@ -30,8 +30,8 @@ class Login extends React.Component{
        console.log('Received values of form: ', values);
      }
    });
-   hashHistory.push("/menu");
-
+   browserHistory.push("/menu");
+   //window.location.href="/menu";
  }
 
   render(){

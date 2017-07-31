@@ -19,7 +19,7 @@ let store=createStore(rootReducer);
 
 ReactDOM.render(
   <Provider store={store}>
-      <Router history={hashHistory} routes={rootRouter}/>
+      <Router history={browserHistory} routes={rootRouter}/>
   </Provider>,
   document.getElementById("root")
 )
