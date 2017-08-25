@@ -9,11 +9,9 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+const styles =require('./style.css');
 
-console.log("00000000000000000000000000000000000")
-console.log(lodashs)
-console.log(React)
-console.log("000000000000000000000000000000000000")
+
 
 @Form.create()
 export default class FormTest extends React.Component {
@@ -51,10 +49,13 @@ export default class FormTest extends React.Component {
 
 
   render() {
-    console.log("00000000000")
-    console.log(lodashs)
-    console.log(add)
-    console.log("00000000000")
+    // console.log("00000000000")
+    // console.log(lodashs)
+    // console.log(add)
+    // console.log("00000000000")
+    console.log("00000000000000000000000000000000000")
+    console.log(styles)
+    console.log("000000000000000000000000000000000000")
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },

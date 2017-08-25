@@ -101,7 +101,7 @@ const MenuItemGroup = Menu.ItemGroup;
             {  this.state.UeditorCount==5 && (<div style={{marginLeft:"30px"}}><FormTest/></div>)}
             { this.state.UeditorCount==6 && <HtmlTable/>}
             { this.state.UeditorCount==7 && <IconFont/>}
-            {this.state.UeditorCount==8 && <ReactForGantt/>}
+            {this.state.UeditorCount==8 && <Test/>}
           </div>
       </div>
     )

@@ -225,16 +225,119 @@
 //
 // var aaa=funf(actionType,initialState);
 // //console.log(aaa)
+//
+//  var abc="poiutyrhf";
+// // for(let codekey of abc){
+// //   console.log(codekey)
+// // }
+// let bbb=abc.repeat(2);
+// // console.log(bbb)
+//
+// let poi="2017".padStart(10,'YYYY-MM-DD')
+// //console.log(poi)
+//
+// var bbbb123=0
+// console.log(Math.sign(bbbb123))
 
- var abc="poiutyrhf";
-// for(let codekey of abc){
-//   console.log(codekey)
+
+// var values={
+//   'jwd':"121212",
+//   'jwd-0-0':"333333333333",
+//   'time':'2017-02-12',
+//   'time2':"1",
+//   'time23':1,
+//   'time098-0-0':"1",
+//   'time2333':"1222222222222222222",
+//   'timelklj-0-0':"222222222222222",
+//   'timess-0-0':'2017-02-12'
 // }
-let bbb=abc.repeat(2);
-// console.log(bbb)
+// var valueArry=[];
+// for(let key of Object.keys(values)){
+//   console.log(key);
+//   let tempIndex=key.split("-")
+//   console.log(tempIndex)
 
-let poi="2017".padStart(10,'YYYY-MM-DD')
-//console.log(poi)
+  // let index=Number(tempIndex[1])
+  // if(valueArry[index]){
+  //     if(values[key]==undefined){
+  //       valueArry[index][tempIndex[0]]="";
+  //     }else{
+  //       valueArry[index][tempIndex[0]]=values[key];
+  //     }
+  //   }else{
+  //     valueArry[index]={
+  //       number:index+1
+  //     };
+  //     if(values[key]==undefined){
+  //       valueArry[index][tempIndex[0]]="";
+  //     }else{
+  //       valueArry[index][tempIndex[0]]=values[key];
+  //     }
+//   //   }
+// }
 
-var bbbb123=0
-console.log(Math.sign(bbbb123))
+// var datasource=document.getElementsByClassName('villagetr');
+// var arry1=[];
+// for(let i=0;i<datasource.length;i++){
+//   let obj={};
+//   obj.code=datasource[i].childNodes[0].innerText;
+//   if(datasource[i].childNodes[2].innerText.indexOf("居委会")>0){
+//     obj.name=datasource[i].childNodes[2].innerText.replace(/居委会/,"");
+//   }
+//   if(datasource[i].childNodes[2].innerText.indexOf("民委员会")>0){
+//     obj.name=datasource[i].childNodes[2].innerText.replace(/民委员会/,"");
+//   }
+//   obj.parent_code="150421404000";
+//   arry1.push(obj)
+// }
+// console.log(JSON.stringify(arry1));
+//
+//
+// var datasource=document.getElementsByClassName('villagetr');
+// var arry1=[];
+// for(let i=0;i<datasource.length;i++){
+//   let obj={};
+//   obj.code=datasource[i].childNodes[0].innerText;
+//   if(datasource[i].childNodes[2].innerText.indexOf("民居委会")>0){
+//     obj.name=datasource[i].childNodes[2].innerText.replace(/民居委会/,"");
+//   }
+//   if(datasource[i].childNodes[2].innerText.indexOf("民委员会")>0){
+//     obj.name=datasource[i].childNodes[2].innerText.replace(/民委员会/,"");
+//   }
+//   obj.parent_code="150421404000";
+//   arry1.push(obj)
+// }
+// console.log(JSON.stringify(arry1));
+//
+//
+// var datasource=document.getElementsByClassName('villagetr');
+// var arry1=[];
+// for(let i=0;i<datasource.length;i++){
+//   let obj={};
+//   obj.code=datasource[i].childNodes[0].innerText;
+//   obj.name=datasource[i].childNodes[2].innerText;
+//   obj.parent_code="150421404000";
+//   arry1.push(obj)
+// }
+// console.log(JSON.stringify(arry1));
+//
+//
+// var datasource=document.getElementsByClassName('villagetr');
+// var arry1=[];
+// for(let i=0;i<datasource.length;i++){
+//   let obj={};
+//   obj.code=datasource[i].childNodes[0].innerText;
+//   if(datasource[i].childNodes[2].innerText.indexOf("民居委会")>0){
+//     obj.name=datasource[i].childNodes[2].innerText.replace(/民居委会/,"");
+//   }
+//   if(datasource[i].childNodes[2].innerText.indexOf("民委员会")>0){
+//     obj.name=datasource[i].childNodes[2].innerText.replace(/民委员会/,"");
+//   }
+//   obj.name=datasource[i].childNodes[2].innerText;
+//   obj.parent_code="150421404000";
+//   arry1.push(obj)
+// }
+// console.log(JSON.stringify(arry1));
+
+// var string ="红旗社区居委会";
+// console.log(string.replace(/居委会/,""));

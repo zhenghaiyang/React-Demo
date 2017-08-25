@@ -2,8 +2,9 @@ import React,{Component} from 'react';
 import { connect} from 'react-redux';  //必须
 import {bindActionCreators} from 'redux'; //必须
 import * as testActions from './reducers'; //引入方法
-import './style.css'
-
+// import './style.css'
+const styles=require('./style.css');
+console.log(styles)
 @connect(
   state => ({
     Testreducer:state.Testreducer
@@ -13,25 +14,25 @@ import './style.css'
 export default class Test extends Component{
 
   render(){
-    console.log("test")
+    console.log("testesttesttestt")
     console.log(this.props)
     console.log("test")
     return(
       <div>
         <div>
-          <img src={require('../../static/img/compatible_chrome.png')} className="Applogo"/>
+          <img src={require('../../static/img/compatible_chrome.png')} className={styles.Applogo}/>
         </div>
         <div>
-          <img src={require('../../static/img/compatible_firefox.png')} className="Applogo"/>
+          <img src={require('../../static/img/compatible_firefox.png')} className={styles.Applogo}/>
         </div>
         <div>
-          <img src={require('../../static/img/compatible_ie.png')} className="Applogo"/>
+          <img src={require('../../static/img/compatible_ie.png')} className={styles.Applogo}/>
         </div>
         <div>
-          <img src={require('../../static/img/compatible_opera.png')} className="Applogo"/>
+          <img src={require('../../static/img/compatible_opera.png')} className={styles.Applogo}/>
         </div>
         <div>
-          <img src={require('../../static/img/compatible_safari.png')} className="Applogo"/>
+          <img src={require('../../static/img/compatible_safari.png')} className={styles.Applogo}/>
         </div>
       </div>
     )
